@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class ADNTest 
+{
+	public static void createFile()
+	{
+		try
+		{
+			FileWriter fw = new FileWriter("sequence.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+		
+			String sequence = "";
+			Random rd = new Random();
+			int number;
+		
+			for (int i = 0; i < 10000; i++) 
+			{
+				number = rd.nextInt(3);
+				sequence += (number == 0 ? "A" : (number == 1 ? "D" : "N"));
+			}
+		
+			bw.write(sequence);
+			bw.flush();
+		}
+		catch(Exception ex) {}
+	}
+	
+	public static void main(String [] args)
+	{
+		createFile();
+	}
+}
